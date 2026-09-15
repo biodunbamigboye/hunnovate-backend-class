@@ -169,39 +169,6 @@
         </header>
 
         <ul class="student-grid">
-            @php
-                $studentList = [
-                    [
-                        'initials' => 'AS',
-                        'name' => 'Ayobamidele Setemi',
-                        'gender' => 'male',
-                        'course' => 'Backend Development',
-                        'duration' => '6 months',
-                    ],
-                    [
-                        'initials' => 'JD',
-                        'name' => 'John Doe',
-                        'gender' => 'female',
-                        'course' => 'Frontend Development',
-                        'duration' => '5 months',
-                    ],
-                    [
-                        'initials' => 'MS',
-                        'name' => 'Mary Smith',
-                        'gender' => 'female',
-                        'course' => 'Fullstack Development',
-                        'duration' => '8 months',
-                    ],
-                    [
-                        'initials' => 'RB',
-                        'name' => 'Robert Brown',
-                        'gender' => 'male',
-                        'course' => 'Data Science',
-                        'duration' => '7 months',
-                    ],
-                ];
-            @endphp
-
             @foreach ($studentList as $student)
                 <x-student-card-item :initials="$student['initials']" :name="$student['name']" :gender="$student['gender']" :course="$student['course']"
                     :duration="$student['duration']" />

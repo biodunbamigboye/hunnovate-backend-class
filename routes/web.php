@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,4 +9,4 @@ Route::get('/', function () {
 
 
 Route::get('/login', fn() => view('login'));
-Route::get('/list', fn() => view('list'));
+Route::get('/list', [StudentListController::class, 'index']);
