@@ -170,8 +170,7 @@
 
         <ul class="student-grid">
             @foreach ($studentList as $student)
-                <x-student-card-item :initials="$student['initials']" :name="$student['name']" :gender="$student['gender']" :course="$student['course']"
-                    :duration="$student['duration']" />
+                <x-student-card-item  :student="$student" />
             @endforeach
 
         </ul>

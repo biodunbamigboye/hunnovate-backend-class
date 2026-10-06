@@ -2,8 +2,11 @@
 
 namespace App\View\Components;
 
+use App\Models\Course;
+use App\Models\Student;
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class StudentCardItem extends Component
@@ -11,14 +14,11 @@ class StudentCardItem extends Component
     /**
      * Create a new component instance.
      */
+    public Collection $courses;
     public function __construct(
-        public string $initials,
-        public string $name,
-        public string $gender,
-        public string $course,
-        public string $duration,
+        public Student $student,
     ) {
-        //
+        $this->courses =  Course::all();
     }
 
     /**
