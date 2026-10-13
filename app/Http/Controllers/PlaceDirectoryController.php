@@ -12,8 +12,10 @@ class PlaceDirectoryController extends Controller
         return view('places.directory', ['places' => Place::query()->latest('id')->paginate(15)]);
     }
 
-    public function show(Place $place): View
+    public function show(int $place): View
     {
-        return view('places.show', compact('place'));
+        $place = Place::query()->findOrFail($place);
+
+        return view('places.detail', ['place' => $place]);
     }
 }

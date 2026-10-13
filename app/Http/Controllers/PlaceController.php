@@ -6,6 +6,7 @@ use App\Http\Requests\SavePlaceRequest;
 use App\Models\Place;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 
 class PlaceController extends Controller
 {
@@ -26,9 +27,12 @@ class PlaceController extends Controller
         return to_route('admin.places.index')->with('success', 'Place created successfully.');
     }
 
-    public function edit(Place $place): View
+    public function edit(int $place): View
     {
-        return view('places.form', compact('place'));
+        Log::info("Editing place with ID: $place");
+        $place = Place::query()->findOrFail($place);
+
+        return view('places.detail', ['place' => $place]);
     }
 
     public function update(SavePlaceRequest $request, Place $place): RedirectResponse
